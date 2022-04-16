@@ -1,5 +1,3 @@
-package main
-
 import (
 	"fmt"
 )
@@ -7,21 +5,6 @@ import (
 type NumArray struct {
 	nums []int
 	sums []int
-}
-
-func main() {
-	nums := []int{1, 2, 3, 4, 5}
-	obj := Constructor(nums)
-	fmt.Println(obj)
-
-	index, val := 1, 3
-	obj.Update(index, val)
-	fmt.Println(obj)
-
-	left, right := 1, 2
-	param_2 := obj.SumRange(left, right)
-	fmt.Println(param_2)
-
 }
 
 func Constructor(nums []int) NumArray {
