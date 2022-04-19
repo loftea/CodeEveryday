@@ -1,6 +1,4 @@
-import (
-	"fmt"
-)
+package leetcode
 
 type NumArray struct {
 	nums []int

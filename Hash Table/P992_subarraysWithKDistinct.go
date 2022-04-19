@@ -3,8 +3,8 @@ package leetcode
 // import "fmt"
 
 func subarraysWithKDistinct(A []int, k int) int {
-	left, mid, right, count, res, H := 0, 0, 0, 0, 0, map[int]int{}
 	length := len(A)
+	left, mid, right, count, res, H := 0, 0, 0, 0, 0, make([]int, length+1)
 	for ; right < length; right++ {
 		x := A[right]
 
