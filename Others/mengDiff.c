@@ -26,7 +26,8 @@ int main()
 
     qsort(input, n, sizeof(int), cmp);
 
-    while (left < n)
+    while (right < n)
     {
+        
     }
 }

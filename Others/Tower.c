@@ -13,7 +13,7 @@ int main()
     int cnt = 0;
     int ans = 0;
     scanf("%d %d", &n, &m);
-    getchar();
+    char * line = malloc(m * sizeof(char));
     for (int i = 1; i < n + 1; i++)
     {
         left[i] = 0;
@@ -27,9 +27,10 @@ int main()
 
     for (int i = 1; i <= n; i++)
     {
+        scanf("%s", line);
         for (int j = 1; j <= m; j++)
         {
-            scanf("%c", &tmp);
+            tmp = line[j-1];
             if (tmp == '1')
             {
                 // boom[i][j] = 1;
@@ -42,8 +43,6 @@ int main()
                 cnt++;
             }
         }
-        if (i != n)
-            getchar();
     }
 
     for (int i = 1; i < n + 1; i++)
@@ -63,6 +62,6 @@ int main()
 
     ans -= 4 * cnt;
     printf("%d", ans);
-
+    free(line);
     return 0;
 }
