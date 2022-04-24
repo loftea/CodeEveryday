@@ -1,24 +1,23 @@
 package leetcode
 
-import "fmt"
-
 func trap(height []int) int {
-	res := 0
-	tmp := 0
-	// begin := false
-	leftHeight := height[0]
-	leftIndex := 0
-	for i := 1; i < len(height); i++ {
-		if leftHeight <= height[i] {
-			// begin = false
-			leftHeight = height[i]
-			res += tmp
-			fmt.Printf("add %d\n", tmp)
+	res, left, right, leftHeight, rightHeight := 0, 0, len(height)-1, 0, 0
+	for left <= right {
+		if height[left] <= height[right] {
+			if height[left] > leftHeight {
+				leftHeight = height[left]
+			} else {
+				res += leftHeight - height[left]
+			}
+			left++
 		} else {
-			// begin = true
-			tmp += leftHeight - height[i]
+			if height[right] >= rightHeight {
+				rightHeight = height[right]
+			} else {
+				res += rightHeight - height[right]
+			}
+			right--
 		}
-
 	}
 	return res
 }
