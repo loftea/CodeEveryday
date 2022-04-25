@@ -301,6 +301,10 @@ TREAP 树是一种由搜索二叉树和堆组合产生的数据结构，在二�
 
 数括号！经典的栈运用！
 
+## 4/25 复习 Python
+
+今天初步复习 Python 的相关知识，相关的代码在 [另外一个库](https://github.com/loftea/Python-in-Practice) 当中更新，参考书是《Python 编程：从入门到实践》，是一本比较简单的入门书，明天有空会看《Python 学习手册》真正复习好怎么用 Python 写程序。
+
 ## 参考
 
 - [题解参考以及选题参考](https://books.halfrost.com/leetcode) @halfrost
