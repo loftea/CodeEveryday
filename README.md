@@ -309,6 +309,10 @@ TREAP 树是一种由搜索二叉树和堆组合产生的数据结构，在二�
 
 今天初步复习 Python 的相关知识，相关的代码在 [另外一个库](https://github.com/loftea/Python-in-Practice) 当中更新，参考书是《Python 编程：从入门到实践》，是一本比较简单的入门书，明天有空会看《Python 学习手册》真正复习好怎么用 Python 写程序。
 
+## 4/26 复习 Python
+
+今天把《Python 编程：从入门到实践》看完了，比想象的要看得久，主要是当初看第一遍的时候没有看后面利用 Django 构建 web 应用的部分，所以今天花了很多时间在这个上面，明天应该就恢复正常的每日做题了。
+
 ## 参考
 
 - [题解参考以及选题参考](https://books.halfrost.com/leetcode) @halfrost
