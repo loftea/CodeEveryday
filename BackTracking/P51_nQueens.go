@@ -1,45 +1,109 @@
-func solveNQueens(n int) [][]string {
-	col, dia1, dia2, row, res := make([]bool, n), make([]bool, 2*n-1), make([]bool, 2*n-1), []int{}, [][]string{}
-	putQueen(n, 0, &col, &dia1, &dia2, &row, &res)
-	return res
+package backtracking
+
+type solve struct {
+	path   []int
+	dim    int
+	res    [][]int
+	tables [][]string
 }
 
-// 尝试在一个n皇后问题中, 摆放第index行的皇后位置
-func putQueen(n, index int, col, dia1, dia2 *[]bool, row *[]int, res *[][]string) {
-	if index == n {
-		*res = append(*res, generateBoard(n, row))
-		return
-	}
-	for i := 0; i < n; i++ {
-		// 尝试将第index行的皇后摆放在第i列
-		if !(*col)[i] && !(*dia1)[index+i] && !(*dia2)[index-i+n-1] {
-			*row = append(*row, i)
-			(*col)[i] = true
-			(*dia1)[index+i] = true
-			(*dia2)[index-i+n-1] = true
-			putQueen(n, index+1, col, dia1, dia2, row, res)
-			(*col)[i] = false
-			(*dia1)[index+i] = false
-			(*dia2)[index-i+n-1] = false
-			*row = (*row)[:len(*row)-1]
+func (s *solve) check(x int) bool {
+	last := len(s.path)
+	for i := 0; i < last; i++ {
+		switch abs(x - s.path[i]) {
+		case 0:
+			return false
+		case (last - i):
+			return false
 		}
 	}
-	return
+	return true
 }
 
-func generateBoard(n int, row *[]int) []string {
-	board := []string{}
-	res := ""
-	for i := 0; i < n; i++ {
-		res += "."
+func (s *solve) step() bool {
+	length := len(s.path)
+	if length == s.dim {
+		s.add()
+		return s.back()
+	} else {
+		for i := 0; i < s.dim; i++ {
+			if s.check(i) {
+				s.path = append(s.path, i)
+				return false
+			}
+		}
+		return s.back()
 	}
-	for i := 0; i < n; i++ {
-		board = append(board, res)
-	}
-	for i := 0; i < n; i++ {
-		tmp := []byte(board[i])
-		tmp[(*row)[i]] = 'Q'
-		board[i] = string(tmp)
-	}
-	return board
 }
+
+func (s *solve) add() {
+	cpy := make([]int, len(s.path))
+	copy(cpy, s.path)
+	s.res = append(s.res, cpy)
+}
+
+func (s *solve) back() bool { //回退查找字典序下一个可行的path，如果找不到则说明查找结束
+	if len(s.path) == 0 {
+		return true
+	}
+	tmp := s.path[len(s.path)-1]
+	s.path = s.path[:len(s.path)-1] //删除一个元素
+
+	for i := tmp + 1; i < s.dim; i++ {
+		if s.check(i) {
+			s.path = append(s.path, i)
+			return false
+		}
+	}
+
+	return s.back()
+}
+
+func (s *solve) makeTables() {
+	for _, x := range s.res {
+		table := []string{}
+		for i := 0; i < s.dim; i++ {
+			line := ""
+			for j := 0; j < s.dim; j++ {
+				if x[i] == j {
+					line += "Q"
+				} else {
+					line += "."
+				}
+			}
+			table = append(table, line)
+		}
+		s.tables = append(s.tables, table)
+	}
+}
+
+// func (s *solve) ShowPath() {
+// 	fmt.Printf("path = %v now\n", s.path)
+// }
+
+// func (s *solve) ShowRes() {
+// 	fmt.Printf("res = %v now\n", s.res)
+// }
+
+func NewSolve(n int) solve {
+	return solve{dim: n}
+}
+
+func abs(x int) int {
+	if x > 0 {
+		return x
+	}
+	return -1 * x
+}
+
+func solveNQueens(n int) [][]string {
+	s := NewSolve(n)
+	for !s.step() {
+	}
+	s.makeTables()
+	return s.tables
+}
+
+// func main() {
+// 	solveNQueens(4)
+// }
