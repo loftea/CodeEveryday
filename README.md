@@ -385,7 +385,7 @@ ElementType Retrieve(SplayTree T);
 
 ### 练习
 
-为了训练 C 语言的能力，这两天会用 C 完成书上的某些练习，更新会放在新的 [库](https://github.com/loftea/DSA_C) 当中更新。可能也会尝试用 C 做一下每日一题。
+为了训练 C 语言的能力，这两天会用 C 完成书上的某些练习，更新会放在新的 [库](https://github.com/loftea/DSA_C) 当中更新。可能也会尝试用 C 做一下每日一题。编程真是太有意思了！接下来继续学习汇编。
 
 ## 参考
 
