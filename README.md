@@ -377,6 +377,16 @@ ElementType Retrieve(SplayTree T);
 
 ### 大名鼎鼎的红黑树
 
+红黑树是将顶点红黑 2 染色的一种平衡树。在红黑树当中，满足以下几点性质：
+
+- 根是黑色的
+- 红色顶点只能有黑色儿子
+- 每个顶点到 NULL 顶点的路中黑色顶点的个数都是相等的
+
+### 练习
+
+为了训练 C 语言的能力，这两天会用 C 完成书上的某些练习，更新会放在新的 [库](https://github.com/loftea/DSA_C) 当中更新。可能也会尝试用 C 做一下每日一题。
+
 ## 参考
 
 - [题解参考以及选题参考](https://books.halfrost.com/leetcode) @halfrost
