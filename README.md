@@ -352,6 +352,31 @@ TREAP 树是一种由搜索二叉树和堆组合产生的数据结构，在二�
 
 类似地，我们只需要更改 `check()` 函数即可，其余类似。
 
+## 5/5 另外的几棵树
+
+### 自顶而下伸展树
+
+一般来说我们在使用伸展树的时候需要从上至下插入节点，然后再从下至上进行伸展，实际上我们可以使用自顶而下的方法完成这两个操作：
+
+```c
+#ifndef _Splay_H
+struct SplayNode;
+typedef struct SplayNode *SplayTree;
+ 
+SplayTree MakeEmpty(SplayTree T);
+SplayTree Find(ElementType X, SplayTree Y);
+SplayTree FindMax(SplayTree T);
+SplayTree FindMin(SplayTree T);
+SplayTree Initialize(void);
+SplayTree Insert(ElementType X,SplayTree T);
+SplayTree Remove(ElementType X,SplayTree T);
+ElementType Retrieve(SplayTree T);
+
+#endif
+```
+
+### 大名鼎鼎的红黑树
+
 ## 参考
 
 - [题解参考以及选题参考](https://books.halfrost.com/leetcode) @halfrost
