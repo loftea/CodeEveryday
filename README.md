@@ -387,6 +387,10 @@ ElementType Retrieve(SplayTree T);
 
 为了训练 C 语言的能力，这两天会用 C 完成书上的某些练习，更新会放在新的 [库](https://github.com/loftea/DSA_C) 当中更新。可能也会尝试用 C 做一下每日一题。编程真是太有意思了！接下来继续学习汇编。
 
+## 5/7
+
+今天面试感觉自己 C++ 还得复习一下，弄本 C++ Primer 看看，接下来的时间主要还是用 C++ 刷题吧。自己的习惯确实不是很好，不能把 C++ 当作 C with class 用。今天做的每日一题做的有点迷糊，实际上就是一个单调栈就好了，用来寻找不小于当前位置的最近位置，用单调栈就可以解决。
+
 ## 参考
 
 - [题解参考以及选题参考](https://books.halfrost.com/leetcode) @halfrost
